@@ -1,0 +1,395 @@
+fileFormatVersion: 2
+guid: b04d437e42b1ec04bb53c207e95a23b5
+timeCreated: 1493736637
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: 44:1:2
+    100002: bar_podsta
+    100004: Circle868
+    100006: Circle869
+    100008: Circle870
+    100010: Circle871
+    100012: Circle872
+    100014: Circle873
+    100016: Circle874
+    100018: Circle875
+    100020: Circle876
+    100022: Circle877
+    100024: Circle878
+    100026: Circle879
+    100028: Fasad_04
+    100030: galogen_10
+    100032: galogen_t0
+    100034: galogen_t1
+    100036: galogen_t2
+    100038: galogen_t3
+    100040: galogen_t4
+    100042: galogen_t5
+    100044: galogen_t6
+    100046: galogen_t7
+    100048: galogen_t8
+    100050: galogen_t9
+    100052: galogen_to
+    100054: Line01
+    100056: Line02
+    100058: Line04
+    100060: Line07
+    100062: Line08
+    100064: Line09
+    100066: Line1886
+    100068: Line1887
+    100070: Line1888
+    100072: Line1895
+    100074: Line1896
+    100076: Line1897
+    100078: Line1898
+    100080: Line1899
+    100082: Line1900
+    100084: Line1901
+    100086: Line1902
+    100088: Line1903
+    100090: Line1904
+    100092: Line1905
+    100094: Line1906
+    100096: Line1907
+    100098: Line1908
+    100100: Line1909
+    100102: Line1910
+    100104: Line1911
+    100106: Line1912
+    100108: Line1913
+    100110: Line1914
+    100112: Line1915
+    100114: Line1916
+    100116: Line1917
+    100118: Line1918
+    100120: Noga 01
+    100122: Noga 02
+    100124: Noga 03
+    100126: Noga 04
+    100128: Noga 05
+    100130: Noga 06
+    100132: Noga 07
+    100134: Noga 08
+    100136: Noga 09
+    100138: Noga 10
+    100140: Noga 11
+    100142: Noga 12
+    100144: Noga 13
+    100146: Object113
+    100148: PivotDoor0
+    100150: polka
+    100152: polka01
+    100154: polka03
+    100156: Pyramid01
+    100158: //RootNode
+    100160: Rectangle0
+    400000: 44:1:2
+    400002: bar_podsta
+    400004: Circle868
+    400006: Circle869
+    400008: Circle870
+    400010: Circle871
+    400012: Circle872
+    400014: Circle873
+    400016: Circle874
+    400018: Circle875
+    400020: Circle876
+    400022: Circle877
+    400024: Circle878
+    400026: Circle879
+    400028: Fasad_04
+    400030: galogen_10
+    400032: galogen_t0
+    400034: galogen_t1
+    400036: galogen_t2
+    400038: galogen_t3
+    400040: galogen_t4
+    400042: galogen_t5
+    400044: galogen_t6
+    400046: galogen_t7
+    400048: galogen_t8
+    400050: galogen_t9
+    400052: galogen_to
+    400054: Line01
+    400056: Line02
+    400058: Line04
+    400060: Line07
+    400062: Line08
+    400064: Line09
+    400066: Line1886
+    400068: Line1887
+    400070: Line1888
+    400072: Line1895
+    400074: Line1896
+    400076: Line1897
+    400078: Line1898
+    400080: Line1899
+    400082: Line1900
+    400084: Line1901
+    400086: Line1902
+    400088: Line1903
+    400090: Line1904
+    400092: Line1905
+    400094: Line1906
+    400096: Line1907
+    400098: Line1908
+    400100: Line1909
+    400102: Line1910
+    400104: Line1911
+    400106: Line1912
+    400108: Line1913
+    400110: Line1914
+    400112: Line1915
+    400114: Line1916
+    400116: Line1917
+    400118: Line1918
+    400120: Noga 01
+    400122: Noga 02
+    400124: Noga 03
+    400126: Noga 04
+    400128: Noga 05
+    400130: Noga 06
+    400132: Noga 07
+    400134: Noga 08
+    400136: Noga 09
+    400138: Noga 10
+    400140: Noga 11
+    400142: Noga 12
+    400144: Noga 13
+    400146: Object113
+    400148: PivotDoor0
+    400150: polka
+    400152: polka01
+    400154: polka03
+    400156: Pyramid01
+    400158: //RootNode
+    400160: Rectangle0
+    2300000: 44:1:2
+    2300002: bar_podsta
+    2300004: Circle868
+    2300006: Circle869
+    2300008: Circle870
+    2300010: Circle871
+    2300012: Circle872
+    2300014: Circle873
+    2300016: Circle874
+    2300018: Circle875
+    2300020: Circle876
+    2300022: Circle877
+    2300024: Circle878
+    2300026: Circle879
+    2300028: Fasad_04
+    2300030: Line01
+    2300032: Line02
+    2300034: Line04
+    2300036: Line07
+    2300038: Line08
+    2300040: Line09
+    2300042: Line1886
+    2300044: Line1887
+    2300046: Line1888
+    2300048: Line1895
+    2300050: Line1896
+    2300052: Line1897
+    2300054: Line1898
+    2300056: Line1899
+    2300058: Line1900
+    2300060: Line1901
+    2300062: Line1902
+    2300064: Line1903
+    2300066: Line1904
+    2300068: Line1905
+    2300070: Line1906
+    2300072: Line1907
+    2300074: Line1908
+    2300076: Line1909
+    2300078: Line1910
+    2300080: Line1911
+    2300082: Line1912
+    2300084: Line1913
+    2300086: Line1914
+    2300088: Line1915
+    2300090: Line1916
+    2300092: Line1917
+    2300094: Line1918
+    2300096: Noga 01
+    2300098: Noga 02
+    2300100: Noga 03
+    2300102: Noga 04
+    2300104: Noga 05
+    2300106: Noga 06
+    2300108: Noga 07
+    2300110: Noga 08
+    2300112: Noga 09
+    2300114: Noga 10
+    2300116: Noga 11
+    2300118: Noga 12
+    2300120: Noga 13
+    2300122: Object113
+    2300124: PivotDoor0
+    2300126: polka
+    2300128: polka01
+    2300130: polka03
+    2300132: Pyramid01
+    2300134: Rectangle0
+    3300000: 44:1:2
+    3300002: bar_podsta
+    3300004: Circle868
+    3300006: Circle869
+    3300008: Circle870
+    3300010: Circle871
+    3300012: Circle872
+    3300014: Circle873
+    3300016: Circle874
+    3300018: Circle875
+    3300020: Circle876
+    3300022: Circle877
+    3300024: Circle878
+    3300026: Circle879
+    3300028: Fasad_04
+    3300030: Line01
+    3300032: Line02
+    3300034: Line04
+    3300036: Line07
+    3300038: Line08
+    3300040: Line09
+    3300042: Line1886
+    3300044: Line1887
+    3300046: Line1888
+    3300048: Line1895
+    3300050: Line1896
+    3300052: Line1897
+    3300054: Line1898
+    3300056: Line1899
+    3300058: Line1900
+    3300060: Line1901
+    3300062: Line1902
+    3300064: Line1903
+    3300066: Line1904
+    3300068: Line1905
+    3300070: Line1906
+    3300072: Line1907
+    3300074: Line1908
+    3300076: Line1909
+    3300078: Line1910
+    3300080: Line1911
+    3300082: Line1912
+    3300084: Line1913
+    3300086: Line1914
+    3300088: Line1915
+    3300090: Line1916
+    3300092: Line1917
+    3300094: Line1918
+    3300096: Noga 01
+    3300098: Noga 02
+    3300100: Noga 03
+    3300102: Noga 04
+    3300104: Noga 05
+    3300106: Noga 06
+    3300108: Noga 07
+    3300110: Noga 08
+    3300112: Noga 09
+    3300114: Noga 10
+    3300116: Noga 11
+    3300118: Noga 12
+    3300120: Noga 13
+    3300122: Object113
+    3300124: PivotDoor0
+    3300126: polka
+    3300128: polka01
+    3300130: polka03
+    3300132: Pyramid01
+    3300134: Rectangle0
+    4300000: PivotDoor0
+    4300002: Rectangle0
+    4300004: Line02
+    4300006: Pyramid01
+    4300008: Fasad_04
+    4300010: polka
+    4300012: 44:1:2
+    4300014: polka03
+    4300016: Object113
+    4300018: Noga 06
+    4300020: Circle876
+    4300022: Line1911
+    4300024: Line1912
+    4300026: Line09
+    4300028: Line01
+    4300030: Line04
+    4300032: Line1887
+    4300034: Line1888
+    4300036: Line1886
+    4300038: Line07
+    4300040: bar_podsta
+    4300042: Line08
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.2
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
