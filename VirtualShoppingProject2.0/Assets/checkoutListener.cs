@@ -5,7 +5,7 @@ using UnityEngine.Networking;
 
 public class checkoutListener : MonoBehaviour {
 
-    public string url = "https://api.us.yaas.io/vdkom/vrservice/vrservice/order";
+    public string url = "localhost:9090/vr/order";
     public CartListener cart;
     public GameObject orderText;
 
@@ -52,7 +52,8 @@ public class checkoutListener : MonoBehaviour {
             WWWForm form = new WWWForm();
             form.AddField("productQuantities", productsList);
 
-            UnityWebRequest www = UnityWebRequest.Post(url, form);
+            Debug.Log("url:" + url);
+            UnityWebRequest www = UnityWebRequest.Post("https://api.eu.yaas.io/vdkom/vrservice/vrservice/order", form);
             www.SetRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
             // make a POST request with a retry policy for a 404
@@ -92,7 +93,7 @@ public class checkoutListener : MonoBehaviour {
 
             if (www.downloadHandler.text.Contains("404"))
             {
-                UnityWebRequest retryWww = UnityWebRequest.Post(url, form);
+                UnityWebRequest retryWww = UnityWebRequest.Post("https://api.eu.yaas.io/vdkom/vrservice/vrservice/order", form);
                 retryWww.SetRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
                 StartCoroutine(F(retryWww, form));

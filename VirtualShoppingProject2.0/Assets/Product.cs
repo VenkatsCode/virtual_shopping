@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Product : MonoBehaviour {
-   
+
+
+    public CartListener cart;
+
     public long id = 2;
     public long qty = 1;
 
@@ -18,8 +21,8 @@ public class Product : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-		
-	}
+        cart = GameObject.Find("CartListener").GetComponent<CartListener>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -35,24 +38,28 @@ public class Product : MonoBehaviour {
         //Product prodTest = new Product(1,1);
 
 
-        CartListener cart = GameObject.Find("CartListener").GetComponent<CartListener>();
-
-        cart.addToCart(gameObject);
+       
 
 
-        // product.gameObject.attachedRigidbody.useGravity = false;
-        //transform.gameObject.GetComponent<Product>();
 
-        transform.SetParent(GameObject.Find("CartListener").transform);
+        Debug.Log(col.gameObject.name);
 
-        GetComponent<Rigidbody>().isKinematic = true;
+        Debug.Log(col.gameObject.layer);
 
-        if (col.gameObject.layer == 10)
+        if (col.gameObject.name == "inside_cart")
         {
 
             Debug.Log("Object Added to cart");
+            cart.addToCart(gameObject);
 
-         
+
+            // product.gameObject.attachedRigidbody.useGravity = false;
+            //transform.gameObject.GetComponent<Product>();
+
+            transform.SetParent(GameObject.Find("CartListener").transform);
+
+            GetComponent<Rigidbody>().isKinematic = true;
+
         }
     }
 
