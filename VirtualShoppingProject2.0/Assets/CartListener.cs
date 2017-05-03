@@ -20,7 +20,11 @@ public class CartListener : MonoBehaviour {
 	}
 
     //Product product
-    public void addToCart(Product product) {
+    public void addToCart(GameObject productGO) {
+
+
+
+        Product product = productGO.GetComponent<Product>();
 
         Debug.Log("Adding a product");
 
@@ -39,11 +43,16 @@ public class CartListener : MonoBehaviour {
         }
 
         
+
+
     }
 
     public void clearCart() {
         productList.Clear();
     }
+
+
+
 
     void OnCollisionEnter(Collision col)
     {

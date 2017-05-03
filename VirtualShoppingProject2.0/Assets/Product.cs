@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Product : MonoBehaviour {
-
-
    
-    public long id = 1;
+    public long id = 2;
     public long qty = 1;
 
     public Product(long id, long qty)
@@ -16,8 +14,6 @@ public class Product : MonoBehaviour {
         this.qty = qty;
 
     }
-
-  
 
 
     // Use this for initialization
@@ -41,9 +37,15 @@ public class Product : MonoBehaviour {
 
         CartListener cart = GameObject.Find("CartListener").GetComponent<CartListener>();
 
-        cart.addToCart(this);
+        cart.addToCart(gameObject);
 
+
+        // product.gameObject.attachedRigidbody.useGravity = false;
         //transform.gameObject.GetComponent<Product>();
+
+        transform.SetParent(GameObject.Find("CartListener").transform);
+
+        GetComponent<Rigidbody>().isKinematic = true;
 
         if (col.gameObject.layer == 10)
         {
