@@ -41,7 +41,33 @@ public class CartListener : MonoBehaviour {
         
     }
 
+    public void clearCart() {
+        productList.Clear();
+    }
 
+    void OnCollisionEnter(Collision col)
+    {
+
+        Debug.Log("Cart collided in checkout zone Cart Listener");
+
+
+        //Product prodTest = new Product(1,1);
+
+
+        // CartListener cart = GameObject.Find("CartListener").GetComponent<CartListener>();
+
+        // cart.addToCart(this);
+
+        //transform.gameObject.GetComponent<Product>();
+
+        /* if (col.gameObject.layer == 10)
+         {
+
+             Debug.Log("Object Added to cart");
+
+
+         }*/
+    }
 
 
 }
