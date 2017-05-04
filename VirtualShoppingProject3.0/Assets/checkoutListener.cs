@@ -9,10 +9,15 @@ public class checkoutListener : MonoBehaviour {
     public CartListener cart;
     public GameObject orderText;
 
+    public GameObject productText;
+
     // Use this for initialization
     void Start () {
         cart = GameObject.Find("CartListener").GetComponent<CartListener>();
         orderText = GameObject.FindGameObjectWithTag("OrderText");
+
+        productText = GameObject.FindGameObjectWithTag("ProductText");
+
         HideOrderText();
     }
 	
@@ -107,19 +112,12 @@ public class checkoutListener : MonoBehaviour {
 
     void ShowOrderText()
     {
-
-        if (orderText != null) {
-            orderText.SetActive(true);
-
-        }
-
-
-       
+         productText.GetComponent<UnityEngine.UI.Text>().text = "Congratulation, the order has been placed successfully !";
     }
 
 
     void HideOrderText() {
-        orderText.SetActive(false);
+        productText.GetComponent<UnityEngine.UI.Text>().text = "";
     }
 
 

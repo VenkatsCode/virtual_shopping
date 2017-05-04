@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Leap.Unity.Interaction;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,11 +8,14 @@ public class Product : MonoBehaviour {
 
     public CartListener cart;
 
+
+    GameObject productText;
+
     public long id = 2;
 
     public string productName;
 
-    public string price;
+    public float price;
 
     public long qty = 1;
 
@@ -27,6 +31,9 @@ public class Product : MonoBehaviour {
     // Use this for initialization
     void Start () {
         cart = GameObject.Find("CartListener").GetComponent<CartListener>();
+
+
+        productText = GameObject.FindGameObjectWithTag("ProductText");
     }
 	
 	// Update is called once per frame
@@ -58,16 +65,35 @@ public class Product : MonoBehaviour {
             // product.gameObject.attachedRigidbody.useGravity = false;
             //transform.gameObject.GetComponent<Product>();
 
-
             
 
+            productText.GetComponent<UnityEngine.UI.Text>().text = "Product "+ this.productName + " was added to the cart !";
+
+            //Invoke("hideProductText", 3);
+
             transform.SetParent(GameObject.Find("CartListener").transform);
+
+            GetComponent<InteractionBehaviour>().enabled = false;
+
             GetComponent<Rigidbody>().useGravity = false;
             GetComponent<Rigidbody>().isKinematic = false;
 
+            Debug.Log(GetComponent<Rigidbody>());
 
+
+            Debug.Log(GetComponent<Rigidbody>().useGravity);
+            Debug.Log(GetComponent<Rigidbody>().isKinematic);
+
+            
 
         }
+    }
+
+
+
+    void hideProductText() {
+
+        productText.GetComponent<UnityEngine.UI.Text>().text = "";
     }
 
     /*

@@ -1,9 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class CartListener : MonoBehaviour {
 
+
+    GameObject orderText;
 
 
     public List<Product> productList;
@@ -11,7 +14,7 @@ public class CartListener : MonoBehaviour {
     // Use this for initialization
     void Start () {
         productList = new List<Product>();
-
+        orderText = GameObject.FindGameObjectWithTag("OrderText");
     }
 	
 	// Update is called once per frame
@@ -40,6 +43,11 @@ public class CartListener : MonoBehaviour {
         else {
             Debug.Log("Adding a product");
             productList.Add(product);
+
+
+            RefreshCartText();
+
+
         }
 
         
@@ -47,36 +55,24 @@ public class CartListener : MonoBehaviour {
 
     }
 
-    public void clearCart() {
-        productList.Clear();
-    }
-
-
-
-
-    void OnCollisionEnter(Collision col)
+    private void RefreshCartText()
     {
 
-        Debug.Log("Cart collided in checkout zone Cart Listener");
-
-
-        //Product prodTest = new Product(1,1);
-
-
-        // CartListener cart = GameObject.Find("CartListener").GetComponent<CartListener>();
-
-        // cart.addToCart(this);
-
-        //transform.gameObject.GetComponent<Product>();
-
-        /* if (col.gameObject.layer == 10)
-         {
-
-             Debug.Log("Object Added to cart");
-
-
-         }*/
+        float price = 0;
+        foreach (Product prod in productList)
+        {
+            price += prod.price;
+        }
+        orderText.GetComponent<UnityEngine.UI.Text>().text = "Item in cart: "+ productList.Count+ " \n Total cost: "+price+"$";
     }
+
+    public void clearCart() {
+        productList.Clear();
+        orderText.GetComponent<UnityEngine.UI.Text>().text = "Item in cart: 0 \n Total cost: 0$";
+    }
+
+
+
 
 
 }
