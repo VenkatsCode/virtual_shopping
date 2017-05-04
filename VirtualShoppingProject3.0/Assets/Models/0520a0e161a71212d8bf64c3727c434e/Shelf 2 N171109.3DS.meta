@@ -1,0 +1,164 @@
+fileFormatVersion: 2
+guid: 665e115761bfa8a49872897d3d63534b
+timeCreated: 1493732074
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Box85
+    100002: Box86
+    100004: Box87
+    100006: Box88
+    100008: Box89
+    100010: Box90
+    100012: Cylinder20
+    100014: Cylinder21
+    100016: Cylinder22
+    100018: Cylinder23
+    100020: Cylinder24
+    100022: Cylinder29
+    100024: derh21
+    100026: derh22
+    100028: derh23
+    100030: derh24
+    100032: derh25
+    100034: derh26
+    100036: glass07
+    100038: glass08
+    100040: glass09
+    100042: Group534
+    100044: Line12
+    100046: opora01
+    100048: //RootNode
+    400000: Box85
+    400002: Box86
+    400004: Box87
+    400006: Box88
+    400008: Box89
+    400010: Box90
+    400012: Cylinder20
+    400014: Cylinder21
+    400016: Cylinder22
+    400018: Cylinder23
+    400020: Cylinder24
+    400022: Cylinder29
+    400024: derh21
+    400026: derh22
+    400028: derh23
+    400030: derh24
+    400032: derh25
+    400034: derh26
+    400036: glass07
+    400038: glass08
+    400040: glass09
+    400042: Group534
+    400044: Line12
+    400046: opora01
+    400048: //RootNode
+    2300000: Box85
+    2300002: Box86
+    2300004: Box87
+    2300006: Box88
+    2300008: Box89
+    2300010: Box90
+    2300012: Cylinder20
+    2300014: Cylinder21
+    2300016: Cylinder22
+    2300018: Cylinder23
+    2300020: Cylinder24
+    2300022: Cylinder29
+    2300024: glass07
+    2300026: glass08
+    2300028: glass09
+    2300030: Line12
+    2300032: opora01
+    3300000: Box85
+    3300002: Box86
+    3300004: Box87
+    3300006: Box88
+    3300008: Box89
+    3300010: Box90
+    3300012: Cylinder20
+    3300014: Cylinder21
+    3300016: Cylinder22
+    3300018: Cylinder23
+    3300020: Cylinder24
+    3300022: Cylinder29
+    3300024: glass07
+    3300026: glass08
+    3300028: glass09
+    3300030: Line12
+    3300032: opora01
+    4300000: opora01
+    4300002: Line12
+    4300004: glass08
+    4300006: Box85
+    4300008: Cylinder29
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.5
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
