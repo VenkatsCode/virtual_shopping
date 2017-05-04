@@ -53,7 +53,7 @@ public class checkoutListener : MonoBehaviour {
             form.AddField("productQuantities", productsList);
 
             Debug.Log("url:" + url);
-            UnityWebRequest www = UnityWebRequest.Post("https://api.eu.yaas.io/vdkom/vrservice/vrservice/order", form);
+            UnityWebRequest www = UnityWebRequest.Post("https://api.eu.yaas.io/vdkom/vrservicetrial/vrservicetrial/order", form);
             www.SetRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
             // make a POST request with a retry policy for a 404
@@ -93,7 +93,7 @@ public class checkoutListener : MonoBehaviour {
 
             if (www.downloadHandler.text.Contains("404"))
             {
-                UnityWebRequest retryWww = UnityWebRequest.Post("https://api.eu.yaas.io/vdkom/vrservice/vrservice/order", form);
+                UnityWebRequest retryWww = UnityWebRequest.Post("https://api.eu.yaas.io/vdkom/vrservicetrial/vrservicetrial/order", form);
                 retryWww.SetRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
                 StartCoroutine(F(retryWww, form));

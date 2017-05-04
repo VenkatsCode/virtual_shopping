@@ -122,23 +122,23 @@ public class IE101Story : MonoBehaviour {
   #region UNITY CALLBACKS
 
   protected void Start() {
-    BlackoutCamera();
-    TurnLightsOff();
+   // BlackoutCamera();
+   // TurnLightsOff();
     if (_prepVRAnchorOnStart) {
       StartCoroutine(WaitThenResetVRAnchor());
     }
     else {
       InitPlayground();
     }
-    CheckNextExerciseButtonState();
-    CheckPreviousExerciseButtonState();
-    IENeonTextUseEnabledColor();
+  //  CheckNextExerciseButtonState();
+ //   CheckPreviousExerciseButtonState();
+ //   IENeonTextUseEnabledColor();
 
-    if (_bgTrackAudioSource != null && _bgTrack != null) {
+ /*   if (_bgTrackAudioSource != null && _bgTrack != null) {
       _bgTrackAudioSource.loop = true;
       _bgTrackAudioSource.clip = _bgTrack;
       _bgTrackAudioSource.Play();
-    }
+    }*/
   }
 
   #endregion
@@ -390,10 +390,10 @@ public class IE101Story : MonoBehaviour {
   }
 
   public void IENeonTextUseEnabledColor() {
-    _neonIEOnText.gameObject.SetActive(true);
+    /*_neonIEOnText.gameObject.SetActive(true);
     _neonIEOffText.gameObject.SetActive(false);
     _neonIEText.material = _ieEnabledFontMaterial;
-    _neonIEOnText.material = _ieEnabledFontMaterial;
+    _neonIEOnText.material = _ieEnabledFontMaterial;*/
   }
 
   public void IENeonTextUseDisabledColor() {

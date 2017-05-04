@@ -8,6 +8,11 @@ public class Product : MonoBehaviour {
     public CartListener cart;
 
     public long id = 2;
+
+    public string productName;
+
+    public string price;
+
     public long qty = 1;
 
     public Product(long id, long qty)
@@ -32,7 +37,7 @@ public class Product : MonoBehaviour {
     void OnCollisionEnter(Collision col)
     {
 
-        Debug.Log("Something collided");
+      
 
 
         //Product prodTest = new Product(1,1);
@@ -42,23 +47,25 @@ public class Product : MonoBehaviour {
 
 
 
-        Debug.Log(col.gameObject.name);
-
-        Debug.Log(col.gameObject.layer);
 
         if (col.gameObject.name == "inside_cart")
         {
 
-            Debug.Log("Object Added to cart");
+           
             cart.addToCart(gameObject);
 
 
             // product.gameObject.attachedRigidbody.useGravity = false;
             //transform.gameObject.GetComponent<Product>();
 
-            transform.SetParent(GameObject.Find("CartListener").transform);
 
-            GetComponent<Rigidbody>().isKinematic = true;
+            
+
+            transform.SetParent(GameObject.Find("CartListener").transform);
+            GetComponent<Rigidbody>().useGravity = false;
+            GetComponent<Rigidbody>().isKinematic = false;
+
+
 
         }
     }

@@ -86,9 +86,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private void PlayLandingSound()
         {
-            m_AudioSource.clip = m_LandSound;
+          /*  m_AudioSource.clip = m_LandSound;
             m_AudioSource.Play();
-            m_NextStep = m_StepCycle + .5f;
+            m_NextStep = m_StepCycle + .5f;*/
         }
 
 
@@ -179,7 +179,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private void UpdateCameraPosition(float speed)
         {
-            Vector3 newCameraPosition;
+         /*   Vector3 newCameraPosition;
             if (!m_UseHeadBob)
             {
                 return;
@@ -197,7 +197,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 newCameraPosition = m_Camera.transform.localPosition;
                 newCameraPosition.y = m_OriginalCameraPosition.y - m_JumpBob.Offset();
             }
-            m_Camera.transform.localPosition = newCameraPosition;
+            m_Camera.transform.localPosition = newCameraPosition;*/
         }
 
 
@@ -236,7 +236,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private void RotateView()
         {
-            m_MouseLook.LookRotation (transform, m_Camera.transform);
+           // m_MouseLook.LookRotation (transform, m_Camera.transform);
         }
 
 
