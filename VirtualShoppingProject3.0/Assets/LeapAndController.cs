@@ -13,7 +13,7 @@ public class LeapAndController : MonoBehaviour {
     // Use this for initialization
     void Start () {
         player = GameObject.Find("FPSController");
-        mainCamera = GameObject.FindGameObjectWithTag("CenterEye");
+        mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
         LMHeadMount = GameObject.FindGameObjectWithTag("LMHeadMount");
 
     }

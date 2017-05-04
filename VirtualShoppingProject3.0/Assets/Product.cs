@@ -69,18 +69,21 @@ public class Product : MonoBehaviour {
 
             productText.GetComponent<UnityEngine.UI.Text>().text = "Product "+ this.productName + " was added to the cart !";
 
-            //Invoke("hideProductText", 3);
+            Invoke("hideProductText", 3);
 
             transform.SetParent(GameObject.Find("CartListener").transform);
 
             GetComponent<InteractionBehaviour>().enabled = false;
 
             GetComponent<Rigidbody>().useGravity = false;
-            GetComponent<Rigidbody>().isKinematic = false;
+            GetComponent<Rigidbody>().isKinematic = true;
 
             Debug.Log(GetComponent<Rigidbody>());
 
 
+            Destroy(GetComponent<InteractionBehaviour>());
+
+            Destroy(GetComponent<Rigidbody>());
             Debug.Log(GetComponent<Rigidbody>().useGravity);
             Debug.Log(GetComponent<Rigidbody>().isKinematic);
 

@@ -123,12 +123,12 @@ public class IE101Story : MonoBehaviour {
 
   protected void Start() {
    // BlackoutCamera();
-   // TurnLightsOff();
+    //TurnLightsOff();
     if (_prepVRAnchorOnStart) {
       StartCoroutine(WaitThenResetVRAnchor());
     }
     else {
-      InitPlayground();
+     // InitPlayground();
     }
   //  CheckNextExerciseButtonState();
  //   CheckPreviousExerciseButtonState();
@@ -313,19 +313,19 @@ public class IE101Story : MonoBehaviour {
   #region PUBLIC METHODS
 
   public void TurnLightsOff() {
-    for (int i = 0; i < _primaryLights.Length; i++) {
+   /* for (int i = 0; i < _primaryLights.Length; i++) {
       _primaryLights[i].enabled = false;
     }
-    _spotlightHalosEnableDisable.DisableComponents();
+    _spotlightHalosEnableDisable.DisableComponents();*/
   }
 
   public void TurnLightsOn() {
-    for (int i = 0; i < _primaryLights.Length; i++) {
+    /*for (int i = 0; i < _primaryLights.Length; i++) {
       _primaryLights[i].enabled = true;
     }
     _spotlightHalosEnableDisable.EnableComponents();
 
-    _bgTrackAudioSource.PlayOneShot(_lightsOnFX);
+    _bgTrackAudioSource.PlayOneShot(_lightsOnFX);*/
   }
 
   public void BeginPlayground() {
