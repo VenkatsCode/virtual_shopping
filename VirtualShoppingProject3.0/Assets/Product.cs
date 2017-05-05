@@ -82,10 +82,11 @@ public class Product : MonoBehaviour {
 
 
             Destroy(GetComponent<InteractionBehaviour>());
-
             Destroy(GetComponent<Rigidbody>());
             Debug.Log(GetComponent<Rigidbody>().useGravity);
             Debug.Log(GetComponent<Rigidbody>().isKinematic);
+
+            transform.position = new Vector3(0, 2, 0);
 
             
 
