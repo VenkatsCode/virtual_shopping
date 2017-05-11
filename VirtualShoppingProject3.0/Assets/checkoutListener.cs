@@ -93,16 +93,24 @@ public class checkoutListener : MonoBehaviour {
         }
         else
         {
-            Debug.Log("Done");
-            Debug.Log("Downloaded: " + www.downloadHandler.text + "..." + www.downloadHandler.text.Contains("404"));
+            
+
+            if (www.downloadHandler.text != "") {
+                Debug.Log("Errors: " + www.downloadHandler.text);
+            }
+            else { Debug.Log("Done"); }
+
 
             if (www.downloadHandler.text.Contains("404"))
             {
+
+
                 UnityWebRequest retryWww = UnityWebRequest.Post("https://api.eu.yaas.io/vdkom/vrservicetrial/vrservicetrial/order", form);
                 retryWww.SetRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
                 StartCoroutine(F(retryWww, form));
             }
+           
 
             // Or retrieve results as binary data
             byte[] results = www.downloadHandler.data;
@@ -112,12 +120,12 @@ public class checkoutListener : MonoBehaviour {
 
     void ShowOrderText()
     {
-         productText.GetComponent<UnityEngine.UI.Text>().text = "Congratulation, the order has been placed successfully !";
+         productText.GetComponent<TextMesh>().text = "Congratulation, the order has been placed successfully !";
     }
 
 
     void HideOrderText() {
-        productText.GetComponent<UnityEngine.UI.Text>().text = "";
+        productText.GetComponent<TextMesh>().text = "";
     }
 
 

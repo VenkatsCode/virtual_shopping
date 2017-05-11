@@ -63,12 +63,12 @@ public class CartListener : MonoBehaviour {
         {
             price += prod.price;
         }
-        orderText.GetComponent<UnityEngine.UI.Text>().text = "Item in cart: "+ productList.Count+ " \n Total cost: "+price+"$";
+        orderText.GetComponent<TextMesh>().text = "Item in cart: "+ productList.Count+ " \n Total cost: "+price+"$";
     }
 
     public void clearCart() {
         productList.Clear();
-        orderText.GetComponent<UnityEngine.UI.Text>().text = "Item in cart: 0 \n Total cost: 0$";
+        orderText.GetComponent<TextMesh>().text = "Item in cart: 0 \n Total cost: 0$";
     }
 
 
