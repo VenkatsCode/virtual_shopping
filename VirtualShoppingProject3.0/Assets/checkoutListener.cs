@@ -66,7 +66,7 @@ public class checkoutListener : MonoBehaviour {
 
             foreach (Product product in cart.productList)
             {
-                Destroy(product.gameObject);
+               // Destroy(product.gameObject);
             }
 
             ShowOrderText();
