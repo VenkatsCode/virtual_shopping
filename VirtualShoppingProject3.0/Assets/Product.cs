@@ -30,7 +30,7 @@ public class Product : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        cart = GameObject.Find("CartListener").GetComponent<CartListenerThrowing>();
+        cart = GameObject.Find("CartListener").GetComponent<CartListener>();
 
 
         productText = GameObject.FindGameObjectWithTag("ProductText");

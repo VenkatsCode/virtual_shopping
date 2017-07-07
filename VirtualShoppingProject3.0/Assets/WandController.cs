@@ -1,117 +1,251 @@
-﻿using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
+﻿	using UnityEngine;
+	using System.Collections;
+	using System.Collections.Generic;
+	using UnityEngine.SceneManagement;
+	/**
+	 * Basic implementation of how to use a Vive controller as an input device.
+	 * Can only interact with items with InteractableBase component
+	 */
+	public class WandController : MonoBehaviour
+	{
+	    private Valve.VR.EVRButtonId gripButton = Valve.VR.EVRButtonId.k_EButton_Grip;
+	    private Valve.VR.EVRButtonId triggerButton = Valve.VR.EVRButtonId.k_EButton_SteamVR_Trigger;
 
-/**
- * Basic implementation of how to use a Vive controller as an input device.
- * Can only interact with items with InteractableBase component
- */
-public class WandController : MonoBehaviour
-{
-    private Valve.VR.EVRButtonId gripButton = Valve.VR.EVRButtonId.k_EButton_Grip;
-    private Valve.VR.EVRButtonId triggerButton = Valve.VR.EVRButtonId.k_EButton_SteamVR_Trigger;
+		private Valve.VR.EVRButtonId trackPad = Valve.VR.EVRButtonId.k_EButton_SteamVR_Touchpad;
+		//private Valve.VR.EVRButtonId downButton = Valve.VR.EVRButtonId.k_EButton_SteamVR_Touchpad;
+		private Valve.VR.EVRButtonId menuButton = Valve.VR.EVRButtonId.k_EButton_ApplicationMenu;
 
+	    private SteamVR_Controller.Device controller { get { return SteamVR_Controller.Input((int)trackedObj.index); } }
+	    private SteamVR_TrackedObject trackedObj;
 
+	    HashSet<InteractableBase> objectsHoveringOver = new HashSet<InteractableBase>();
 
-    private SteamVR_Controller.Device controller { get { return SteamVR_Controller.Input((int)trackedObj.index); } }
-    private SteamVR_TrackedObject trackedObj;
-
-    HashSet<InteractableBase> objectsHoveringOver = new HashSet<InteractableBase>();
-
-    private InteractableBase closestItem;
-    private InteractableBase interactingItem;
-
-    // Use this for initialization
-    void Start()
-    {
-        trackedObj = GetComponent<SteamVR_TrackedObject>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (controller == null)
-        {
-            Debug.Log("Controller not initialized");
-            return;
-        }
-
-        if (controller.GetPressDown(gripButton) || controller.GetPressDown(triggerButton))
-        {
-           
+	    private InteractableBase closestItem;
+	    private InteractableBase interactingItem;
 
 
-            // Find the closest item to the hand in case there are multiple and interact with it
-            float minDistance = float.MaxValue;
+		public GameObject menuGO;
+		public TeleportVive teleportVive;
 
-            float distance;
-            foreach (InteractableBase item in objectsHoveringOver)
-            {
-                distance = (item.transform.position - transform.position).sqrMagnitude;
 
-                if (distance < minDistance)
-                {
-                    minDistance = distance;
-                    closestItem = item;
-                }
-            }
+		public UnityEngine.UI.Button[] buttons;
 
-            interactingItem = closestItem;
-            closestItem = null;
 
-            if (interactingItem)
-            {
+		public int activeMenuButton = 0;
 
-               
+	    // Use this for initialization
+	    void Start()
+	    {
+	        trackedObj = GetComponent<SteamVR_TrackedObject>();
 
-                // Begin Interaction should already end interaction from previous
-                if (controller.GetPressDown(gripButton))
-                {
-                    interactingItem.OnGripPressDown(this);
-                }
-                if (controller.GetPressDown(triggerButton))
-                {
-                   
+			buttons = menuGO.GetComponentsInChildren<UnityEngine.UI.Button> ();
+			toggleMenu (true);
+	    }
 
-                    interactingItem.OnTriggerPressDown(this);
-                }
-            }
-        }
+	    // Update is called once per frame
+	    void Update()
+	    {
+	        if (controller == null)
+	        {
+	            Debug.Log("Controller not initialized");
+	            return;
+	        }
 
-        if (controller.GetPressUp(gripButton) && interactingItem != null)
-        {
+	        if (controller.GetPressDown(gripButton) || controller.GetPressDown(triggerButton))
+	        {
+	           
 
-            Debug.Log("TRIGGER");
-            //interactingItem.EndInteraction(this);
-            interactingItem.OnGripPressUp(this);
-        }
 
-        if (controller.GetPressUp(triggerButton) && interactingItem != null)
-        {
+	            // Find the closest item to the hand in case there are multiple and interact with it
+	            float minDistance = float.MaxValue;
 
-            Debug.Log("TRIGGER INTERACTION");
-            
-            interactingItem.OnTriggerPressUp(this);
-        }
-    }
+	            float distance;
+	            foreach (InteractableBase item in objectsHoveringOver)
+	            {
+	                distance = (item.transform.position - transform.position).sqrMagnitude;
 
-    // Adds all colliding items to a HashSet for processing which is closest
-    private void OnTriggerEnter(Collider collider)
-    {
-        InteractableBase collidedItem = collider.GetComponent<InteractableBase>();
-        if (collidedItem)
-        {
-            objectsHoveringOver.Add(collidedItem);
-        }
-    }
+	                if (distance < minDistance)
+	                {
+	                    minDistance = distance;
+	                    closestItem = item;
+	                }
+	            }
 
-    // Remove all items no longer colliding with to avoid further processing
-    private void OnTriggerExit(Collider collider)
-    {
-        InteractableBase collidedItem = collider.GetComponent<InteractableBase>();
-        if (collidedItem)
-        {
-            objectsHoveringOver.Remove(collidedItem);
-        }
-    }
-}
+	            interactingItem = closestItem;
+	            closestItem = null;
+
+	            if (interactingItem)
+	            {
+
+	               
+
+	                // Begin Interaction should already end interaction from previous
+	                if (controller.GetPressDown(gripButton))
+	                {
+	                    interactingItem.OnGripPressDown(this);
+	                }
+	                if (controller.GetPressDown(triggerButton))
+	                {
+	                   
+
+	                    interactingItem.OnTriggerPressDown(this);
+	                }
+	            }
+	        }
+
+	        if (controller.GetPressUp(gripButton) && interactingItem != null)
+	        {
+
+	            Debug.Log("TRIGGER");
+	            //interactingItem.EndInteraction(this);
+	            interactingItem.OnGripPressUp(this);
+
+	        }
+
+	        if (controller.GetPressUp(triggerButton) && interactingItem != null)
+	        {
+
+	            Debug.Log("TRIGGER INTERACTION");
+	            
+	            interactingItem.OnTriggerPressUp(this);
+	        }
+
+
+
+
+
+
+			if (controller.GetPressUp(trackPad) && SteamVR_Controller.Input ((int)trackedObj.index).GetAxis ().y > 0.00f)
+			{
+				Debug.Log("UP");
+
+				if (activeMenuButton > 0) {
+					activeMenuButton--;
+					changeMenuSelection (activeMenuButton);
+				}
+			}
+
+
+			if (controller.GetPressUp(trackPad) && SteamVR_Controller.Input ((int)trackedObj.index).GetAxis ().y < 0.00f)
+			{
+				//GetComponents<SteamVR_TrackedController> ();
+				Debug.Log("DOWN");
+
+				if (activeMenuButton < (buttons.Length-1)) {
+					activeMenuButton++;
+					changeMenuSelection (activeMenuButton);
+				}
+
+			}
+
+
+			if (controller.GetPressUp(menuButton))
+			{
+				if (menuGO.activeSelf == true) {
+					toggleMenu (false);
+				} else {
+					toggleMenu (true);
+				}
+
+				Debug.Log("menu"+menuGO.activeSelf+" "+menuGO.activeInHierarchy);
+
+			}
+
+			if (controller.GetPressUp(triggerButton) && (menuGO.activeSelf == true))
+			{
+
+				Debug.Log("ACTION START"+activeMenuButton);
+
+
+				switch (activeMenuButton) {
+
+
+				case 0:
+					Debug.Log ("000000" + activeMenuButton);
+
+					SceneManager.LoadScene ("StoreViveSmaller");
+
+					break;
+					case 1:
+					
+
+					SceneManager.LoadScene ("StoreViveBig");
+
+					break;
+				case 2:
+					
+
+					SceneManager.LoadScene ("StoreGameThrow");
+
+					break;
+				case 3:
+					
+
+				Application.Quit ();
+
+					break;
+			
+				}
+
+
+			}
+
+
+
+
+
+
+
+
+	    }
+
+
+		private void toggleMenu(bool show){
+		
+			if (show == true) {
+
+				menuGO.SetActive (true);
+				teleportVive.enabled = false;
+			} else {
+				menuGO.SetActive (false);
+				teleportVive.enabled = true;
+			}
+		}
+
+
+		private void changeMenuSelection(int activeMenuButton){
+			int i = 0;
+			foreach(UnityEngine.UI.Button button in buttons){
+
+
+				if(activeMenuButton == i){
+					button.image.color = Color.red;
+				}
+				else{
+					button.image.color = Color.white;
+				}
+				i++;
+			}
+		}
+
+
+	    // Adds all colliding items to a HashSet for processing which is closest
+	    private void OnTriggerEnter(Collider collider)
+	    {
+	        InteractableBase collidedItem = collider.GetComponent<InteractableBase>();
+	        if (collidedItem)
+	        {
+	            objectsHoveringOver.Add(collidedItem);
+	        }
+	    }
+
+	    // Remove all items no longer colliding with to avoid further processing
+	    private void OnTriggerExit(Collider collider)
+	    {
+	        InteractableBase collidedItem = collider.GetComponent<InteractableBase>();
+	        if (collidedItem)
+	        {
+	            objectsHoveringOver.Remove(collidedItem);
+	        }
+	    }
+	}
