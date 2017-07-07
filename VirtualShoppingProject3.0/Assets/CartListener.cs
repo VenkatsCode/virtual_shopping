@@ -6,7 +6,7 @@ using UnityEngine;
 public class CartListener : MonoBehaviour {
 
 
-    GameObject orderText;
+	public GameObject orderText;
 
 
     public List<Product> productList;
@@ -23,7 +23,7 @@ public class CartListener : MonoBehaviour {
 	}
 
     //Product product
-    public void addToCart(GameObject productGO) {
+	public virtual void addToCart(GameObject productGO) {
 
 
 
@@ -55,7 +55,7 @@ public class CartListener : MonoBehaviour {
 
     }
 
-    private void RefreshCartText()
+	public virtual void RefreshCartText()
     {
 
         float price = 0;
@@ -66,7 +66,7 @@ public class CartListener : MonoBehaviour {
         orderText.GetComponent<TextMesh>().text = "Item in cart: "+ productList.Count+ " \n Total cost: "+price+"$";
     }
 
-    public void clearCart() {
+	public virtual void clearCart() {
         productList.Clear();
         orderText.GetComponent<TextMesh>().text = "Item in cart: 0 \n Total cost: 0$";
     }
