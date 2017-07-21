@@ -11,6 +11,8 @@ public class Product : MonoBehaviour {
 
     GameObject productText;
 
+	GameObject productDetailText;
+
     public long id = 2;
 
     public string productName;
@@ -34,6 +36,7 @@ public class Product : MonoBehaviour {
 
 
         productText = GameObject.FindGameObjectWithTag("ProductText");
+		productDetailText = GameObject.FindGameObjectWithTag("ProductDetailText");
     }
 	
 	// Update is called once per frame
@@ -45,10 +48,12 @@ public class Product : MonoBehaviour {
     void OnTriggerEnter(Collider col)
     {
         Debug.Log("Trigger happened"+ col.gameObject.name);
-
-
+		productDetailText.GetComponent<TextMesh>().text = "Product " + this.productName + "\n Price:"+this.price+"$";
+		Invoke("hideProductDetailText", 6);
 
     }
+
+
 
     void OnCollisionEnter(Collision col)
     {
@@ -110,6 +115,11 @@ public class Product : MonoBehaviour {
 
         productText.GetComponent<TextMesh>().text = "";
     }
+
+	void hideProductDetailText() {
+
+		productDetailText.GetComponent<TextMesh>().text = "";
+	}
 
     /*
     void OnCollisionStay(Collision col)

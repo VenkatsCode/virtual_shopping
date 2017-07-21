@@ -174,8 +174,11 @@
 					break;
 				case 2:
 					
+					//Supermarket Game
 
-					SceneManager.LoadScene ("StoreGameThrow");
+
+
+					//SceneManager.LoadScene ("StoreGameThrow");
 
 					break;
 				case 3:
