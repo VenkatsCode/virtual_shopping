@@ -77,7 +77,7 @@ public class Product : MonoBehaviour {
 
 
 
-            productText.GetComponent<TextMesh>().text = "Product " + this.productName + " was added to the cart !";
+			productText.GetComponent<TextMesh>().text = "Product " + this.productName + "\n was added to the cart !";
 
             Invoke("hideProductText", 3);
 

@@ -28,6 +28,10 @@
 		public TeleportVive teleportVive;
 
 
+
+		groceryGame grocery;
+
+
 		public UnityEngine.UI.Button[] buttons;
 
 
@@ -38,8 +42,10 @@
 	    {
 	        trackedObj = GetComponent<SteamVR_TrackedObject>();
 
+			grocery = GameObject.Find("GroceryGame").GetComponent<groceryGame>();
+
 			buttons = menuGO.GetComponentsInChildren<UnityEngine.UI.Button> ();
-			toggleMenu (true);
+			
 	    }
 
 	    // Update is called once per frame
@@ -176,8 +182,8 @@
 					
 					//Supermarket Game
 
-
-
+					grocery.startGame ();
+					toggleMenu (false);
 					//SceneManager.LoadScene ("StoreGameThrow");
 
 					break;

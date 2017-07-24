@@ -8,8 +8,15 @@ public class gameScript : MonoBehaviour {
 	public GameObject[] gameobjectArray;
 	private Vector3[] gameobjectInitialPositionArray = new Vector3[100];
 	private int score = 0;
+
+	GameObject ProductText;
+
 	void Start () {
 		initialPosition ();
+
+
+		ProductText = GameObject.FindGameObjectWithTag ("ProductText");
+
 		Debug.Log("gameobjectArray: "+gameobjectArray.Length);
 	}
 	
@@ -41,7 +48,7 @@ public class gameScript : MonoBehaviour {
 			gameobjectArray [i].transform.rotation = Quaternion.identity;
 			//Vector3.zero;
 		}
-		score = 0;
+
 	}
 
 	public void calculateScore(){
@@ -64,6 +71,19 @@ public class gameScript : MonoBehaviour {
 			}
 		}
 		Debug.Log("score is: "+score);
+
+		Invoke ("showScore",0f);
+		Invoke ("hideScore",4f);
+
 	}
 
+
+	void showScore(){
+		ProductText.GetComponent<TextMesh> ().text = "Your score is: " + score;
+	}
+
+	void hideScore(){
+		ProductText.GetComponent<TextMesh> ().text = "";
+		score = 0;
+	}
 }

@@ -34,6 +34,9 @@ public class bowlingReset : MonoBehaviour {
 
 
 			game.calculateScore();
+
+
+
 			game.resetPosition ();
 			transform.position = initialPos;
 			startCounter = 0f;
@@ -41,4 +44,7 @@ public class bowlingReset : MonoBehaviour {
 		//if(startCounter - Time.deltaTime ()
 
 	}
+
+
+
 }
