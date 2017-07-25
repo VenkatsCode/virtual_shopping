@@ -7,6 +7,7 @@ public class groceryGame : MonoBehaviour {
 
 
 	GameObject timerText;
+	GameObject OrderText;
 	CartListener cart;
 	bool counting = false;
 
@@ -19,15 +20,15 @@ public class groceryGame : MonoBehaviour {
 	void Start () {
 		cart = GameObject.Find("CartListener").GetComponent<CartListener>();
 		timerText = GameObject.FindGameObjectWithTag ("TimerText");
+		OrderText = GameObject.FindGameObjectWithTag ("OrderText");
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
 		if (counting) {
-		
 			counter += Time.deltaTime;
-			timerText.GetComponent<TextMesh> ().text = "Timer: " + Mathf.Round((counterTime - counter)*10)/10 + "seconds left";
+			timerText.GetComponent<TextMesh> ().text = "Timer: " + Mathf.Round((counterTime - counter)*100)/100 + "seconds left";
 			if (counter > counterTime) {
 				counting = false;
 				counter = 0;
@@ -47,7 +48,13 @@ public class groceryGame : MonoBehaviour {
 
 
 	void printScore(){
+		timerText.GetComponent<TextMesh> ().text = OrderText.GetComponent<TextMesh> ().text; 
+		Invoke ("hideScore", 8f);
+	}
+
+	void hideScore(){
 	
+		timerText.GetComponent<TextMesh> ().text = "";
 	}
 
 	void resetBasket(){

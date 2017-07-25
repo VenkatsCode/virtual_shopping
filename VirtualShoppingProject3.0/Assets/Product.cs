@@ -13,6 +13,9 @@ public class Product : MonoBehaviour {
 
 	GameObject productDetailText;
 
+
+	Material highlightMat;
+
     public long id = 2;
 
     public string productName;
@@ -34,6 +37,7 @@ public class Product : MonoBehaviour {
     void Start () {
         cart = GameObject.Find("CartListener").GetComponent<CartListener>();
 
+		highlightMat = Resources.Load("Material/outlined.mat", typeof(Material)) as Material;
 
         productText = GameObject.FindGameObjectWithTag("ProductText");
 		productDetailText = GameObject.FindGameObjectWithTag("ProductDetailText");
@@ -47,12 +51,24 @@ public class Product : MonoBehaviour {
 
     void OnTriggerEnter(Collider col)
     {
-        Debug.Log("Trigger happened"+ col.gameObject.name);
+      /*  Debug.Log("Trigger happened"+ col.gameObject.name);
 		productDetailText.GetComponent<TextMesh>().text = "Product " + this.productName + "\n Price:"+this.price+"$";
-		Invoke("hideProductDetailText", 6);
+		Invoke("hideProductDetailText", 6);*/
 
     }
 
+
+	public void Highlight(){
+		productDetailText.GetComponent<TextMesh>().text = "Product " + this.productName + "\n Price:"+this.price+"$";
+	}
+
+
+
+
+
+	public void removeHighlight(){
+		productDetailText.GetComponent<TextMesh>().text = "";
+	}
 
 
     void OnCollisionEnter(Collision col)
@@ -79,7 +95,7 @@ public class Product : MonoBehaviour {
 
 			productText.GetComponent<TextMesh>().text = "Product " + this.productName + "\n was added to the cart !";
 
-            Invoke("hideProductText", 3);
+            Invoke("hideProductText", 6);
 
             transform.SetParent(GameObject.FindGameObjectWithTag("Cart").transform);
 

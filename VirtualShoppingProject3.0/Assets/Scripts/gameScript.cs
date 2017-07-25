@@ -60,9 +60,9 @@ public class gameScript : MonoBehaviour {
 			if ((gameobjectArray [i].transform.position.x != gameobjectInitialPositionArray [i].x && 
 				gameobjectArray [i].transform.position.z != gameobjectInitialPositionArray [i].z && 
 				gameobjectArray [i].transform.position.y != gameobjectInitialPositionArray [i].y) &&
-				(gameobjectArray [i].transform.rotation.eulerAngles.x >= 2f ||
-				gameobjectArray [i].transform.rotation.eulerAngles.y >= 2f ||
-					gameobjectArray [i].transform.rotation.eulerAngles.z >= 2f) 
+				(gameobjectArray [i].transform.rotation.eulerAngles.x >= 45f ||
+				gameobjectArray [i].transform.rotation.eulerAngles.y >= 45f ||
+					gameobjectArray [i].transform.rotation.eulerAngles.z >= 45f) 
 
 			)
 			{

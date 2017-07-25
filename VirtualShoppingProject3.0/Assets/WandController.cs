@@ -57,6 +57,39 @@
 	            return;
 	        }
 
+
+		/*float minDistance = float.MaxValue;
+
+		float distance;
+
+		foreach (InteractableBase item in objectsHoveringOver)
+		{
+			distance = (item.transform.position - transform.position).sqrMagnitude;
+
+			if (distance < minDistance)
+			{
+				minDistance = distance;
+				closestItem = item;
+			}
+		}
+
+		interactingItem = closestItem;
+		closestItem = null;
+
+
+		if (interactingItem != null) {
+
+			interactingItem.GetComponent<Product> ().Highlight2();
+		}
+		*/
+
+
+
+
+
+
+
+
 	        if (controller.GetPressDown(gripButton) || controller.GetPressDown(triggerButton))
 	        {
 	           
@@ -80,6 +113,8 @@
 	            interactingItem = closestItem;
 	            closestItem = null;
 
+
+
 	            if (interactingItem)
 	            {
 
@@ -88,12 +123,18 @@
 	                // Begin Interaction should already end interaction from previous
 	                if (controller.GetPressDown(gripButton))
 	                {
+					if (interactingItem.GetComponent<Product> () != null) {
+							interactingItem.GetComponent<Product> ().Highlight();
+						}
 	                    interactingItem.OnGripPressDown(this);
 	                }
 	                if (controller.GetPressDown(triggerButton))
 	                {
 	                   
 
+					if (interactingItem.GetComponent<Product> () != null) {
+							interactingItem.GetComponent<Product> ().Highlight();
+						}
 	                    interactingItem.OnTriggerPressDown(this);
 	                }
 	            }
@@ -104,6 +145,11 @@
 
 	            Debug.Log("TRIGGER");
 	            //interactingItem.EndInteraction(this);
+
+			if (interactingItem.GetComponent<Product> () != null) {
+
+					interactingItem.GetComponent<Product> ().removeHighlight ();
+				}
 	            interactingItem.OnGripPressUp(this);
 
 	        }
@@ -112,7 +158,9 @@
 	        {
 
 	            Debug.Log("TRIGGER INTERACTION");
-	            
+			if (interactingItem.GetComponent<Product> () != null) {
+					interactingItem.GetComponent<Product> ().removeHighlight ();
+				}
 	            interactingItem.OnTriggerPressUp(this);
 	        }
 
