@@ -69,7 +69,11 @@ public class checkoutListener : MonoBehaviour {
                // Destroy(product.gameObject);
             }
 
-            ShowOrderText();
+
+			//Debug.Log (productsList.Length);
+			//if (productsList.Length > 0) {
+            	ShowOrderText();
+			//}
 
             Invoke("HideOrderText", 2);
 

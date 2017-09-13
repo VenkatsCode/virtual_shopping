@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CartListener : MonoBehaviour {
 
@@ -63,12 +64,13 @@ public class CartListener : MonoBehaviour {
         {
             price += prod.price;
         }
-        orderText.GetComponent<TextMesh>().text = "Items in cart: "+ productList.Count+ " \n Total cost: "+price+"$";
+			
+		orderText.GetComponent<TextMesh>().text = "Items in cart: "+ productList.Count+ " \n Total cost: "+price+"$";
     }
 
 	public virtual void clearCart() {
         productList.Clear();
-        orderText.GetComponent<TextMesh>().text = "Items in cart: 0 \n Total cost: 0$";
+		orderText.GetComponent<TextMesh>().text = "Items in cart: 0 \n Total cost: 0$";
     }
 
 
