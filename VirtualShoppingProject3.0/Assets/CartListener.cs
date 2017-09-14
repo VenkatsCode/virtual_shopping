@@ -9,6 +9,7 @@ public class CartListener : MonoBehaviour {
 
 	public GameObject orderText;
 
+	public OrderPage orderPage;
 
     public List<Product> productList;
 
@@ -51,7 +52,8 @@ public class CartListener : MonoBehaviour {
 
         }
 
-        
+		Debug.Log("ProductCount"+productList.Count);
+		orderPage.refreshList ();
 
 
     }
@@ -65,7 +67,7 @@ public class CartListener : MonoBehaviour {
             price += prod.price;
         }
 			
-		orderText.GetComponent<TextMesh>().text = "Items in cart: "+ productList.Count+ " \n Total cost: "+price+"$";
+		//orderText.GetComponent<TextMesh>().text = "Items in cart: "+ productList.Count+ " \n Total cost: "+price+"$";
     }
 
 	public virtual void clearCart() {

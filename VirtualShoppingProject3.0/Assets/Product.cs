@@ -16,7 +16,7 @@ public class Product : MonoBehaviour {
 
 	Material highlightMat;
 
-    public long id = 2;
+    public string id = "2";
 
     public string productName;
 
@@ -24,7 +24,7 @@ public class Product : MonoBehaviour {
 
     public long qty = 1;
 
-    public Product(long id, long qty)
+    public Product(string id, long qty)
     {
 
         this.id = id;
@@ -108,9 +108,9 @@ public class Product : MonoBehaviour {
 
             Debug.Log(GetComponent<Rigidbody>());
 
-            transform.position = new Vector3(0, 2, 0);
+            //transform.position = new Vector3(0, 2, 0);
 
-            Destroy(GetComponent<Rigidbody>());
+           // Destroy(GetComponent<Rigidbody>());
 
             Debug.Log(GetComponent<Rigidbody>().isKinematic);
 

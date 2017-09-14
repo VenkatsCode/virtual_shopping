@@ -33,8 +33,6 @@ public class gameScript : MonoBehaviour {
 
 		for(int i=0; i<gameobjectArray.Length; i++)
 		{
-			Debug.Log(i);
-			Debug.Log("gameobjectArray: "+gameobjectArray [i].transform.position);
 			gameobjectInitialPositionArray [i] = gameobjectArray [i].transform.position;
 		}
 

@@ -11,7 +11,9 @@ public class BasketDetail : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		transform.Rotate (Vector3.up * Time.deltaTime * 20);
+		//transform.Rotate (Vector3.up, Time.deltaTime * 80);
+
+		transform.RotateAround(transform.position,transform.up, Time.deltaTime * 80f);
 		//, Space.World
 	}
 }

@@ -33,7 +33,7 @@ public class checkoutListener : MonoBehaviour {
 
         Debug.Log("Something collided in checkout zone Checkout listener"+other.gameObject.tag);
 
-        var productsMap = new Dictionary<long, long>();
+        var productsMap = new Dictionary<string, long>();
         if (other.gameObject.tag == "Player")
         {
             Debug.Log("Checkout Activated");
@@ -44,7 +44,7 @@ public class checkoutListener : MonoBehaviour {
             }
 
             string productsList = "[{";
-            foreach (KeyValuePair<long, long> entry in productsMap)
+            foreach (KeyValuePair<string, long> entry in productsMap)
             {
                 productsList += "\"id\":\"" + entry.Key + "\",";
                 productsList += "\"value\":\"" + entry.Value + "\"";
