@@ -72,7 +72,7 @@ public class CartListener : MonoBehaviour {
 
 	public virtual void clearCart() {
         productList.Clear();
-		orderText.GetComponent<TextMesh>().text = "Items in cart: 0 \n Total cost: 0$";
+		//orderText.GetComponent<TextMesh>().text = "Items in cart: 0 \n Total cost: 0$";
     }
 
 

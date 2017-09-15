@@ -8,8 +8,8 @@ public class checkoutListener : MonoBehaviour {
     public string url = "localhost:9090/vr/order";
     public CartListener cart;
     public GameObject orderText;
-
     public GameObject productText;
+	public OrderPage orderPage;
 
     // Use this for initialization
     void Start () {
@@ -17,6 +17,9 @@ public class checkoutListener : MonoBehaviour {
         orderText = GameObject.FindGameObjectWithTag("OrderText");
 
         productText = GameObject.FindGameObjectWithTag("ProductText");
+
+
+
 
         HideOrderText();
     }
@@ -26,61 +29,124 @@ public class checkoutListener : MonoBehaviour {
 		
 	}
 
+	public void confirmOrder(){
+	
+
+	
+
+		var productsMap = new Dictionary<string, long>();
+
+		Debug.Log("Checkout Activated");
+		foreach(Product product in cart.productList){
+
+			productsMap[product.id] = product.qty;
+
+		}
+
+
+
+
+		string productsList = "{" +
+		                      "\"owner\": \"" + "virtualshop@sap.com" + "\"," +
+		                      "\"market\": {" +
+		                      "\"marketId\": \"" + "A1\"" +
+		                      "},"+
+							"\"customer\": {"+
+							"\"customerNumber\": \""+"833950386\""+"},"+
+							"\"description\": \""+"sample order\","+
+							"\"orderItems\":[{";
+
+
+		//string productsList = "[{";
+		foreach (KeyValuePair<string, long> entry in productsMap)
+		{
+			productsList += "\"itemType\":\"" + "subscriptionItem" + "\",";
+			productsList += "\"product\":{" + "\"id\": \"" + entry.Key +"\"},";
+			productsList += "\"quantity\":{" + "\"value\": \"" + entry.Value +"\"}";
+			productsList += "},{";
+		}
+		productsList = productsList.Substring(0, productsList.Length - 2) + "]";
+		productsList += "}";
+		Debug.Log("products is: " + productsList);
+
+		WWWForm form = new WWWForm();
+		//form.AddField("", productsList);
+
+		form.AddField("owner", "virtualshop@sap.com");
+		form.AddField("market",  "{\"marketId\": \"" + "A1\"}");
+		form.AddField ("marketId", productsList);
+		form.AddField("productQuantities", productsList);
+
+		//byte []bytes = System.Text.Encoding.UTF8.GetBytes(productsList);
+
+
+
+
+		Debug.Log("url:" + url);
+
+		/*UnityWebRequest www = UnityWebRequest.Post("https://order-service-ngom-test.cfapps.us10.hana.ondemand.com/s2s/v1/v1/orders", JsonUtility.ToJson (productsList));
+		www.SetRequestHeader("Content-Type", "application/json");
+		www.SetRequestHeader("Authorization", "Basic TmpsVGsxSExoODFpTG5rNGJNZEo5Vmo1OjJrZG13cEZtNXhJRmVSMTNkb3NDOVo4cw==");
+		www.SetRequestHeader("hybris-tenant", "revcdevcfint");
+		www.SetRequestHeader("hybris-user", "revcdevcfint");*/
+		// make a POST request with a retry policy for a 404
+		//StartCoroutine(F(www));
+
+		Dictionary<string, string> headers = new Dictionary<string, string>();
+
+		headers.Add("Content-Type", "application/json");
+		headers.Add("Authorization", "Basic TmpsVGsxSExoODFpTG5rNGJNZEo5Vmo1OjJrZG13cEZtNXhJRmVSMTNkb3NDOVo4cw==");
+		headers.Add("hybris-tenant", "revcdevcfint");
+		headers.Add("hybris-user", "revcdevcfint");
+
+
+		byte[] body = System.Text.Encoding.UTF8.GetBytes(productsList);
+		//UnityEngine.WWW www = new UnityEngine.WWW("https://order-service-ngom-test.cfapps.us10.hana.ondemand.com/s2s/v1/v1/orders", body, headers);
+		//StartCoroutine(WaitForRequest(www));
+		Debug.Log("ORDER PLACED !");
+		Debug.Log (productsList);
+
+
+		foreach (Product product in cart.productList)
+		{
+			// Destroy(product.gameObject);
+		}
+		cart.clearCart ();
+
+
+		//Debug.Log (productsList.Length);
+		//if (productsList.Length > 0) {
+		ShowOrderText();
+		//}
+
+		Invoke("HideOrderText", 2);
+
+
+	}
+
+
+
+
+	IEnumerator WaitForRequest(WWW www)
+	{
+		yield return www;
+
+		// empty if http status cod 500
+		Debug.Log("WWW: " + www.text);
+
+	}
+
 
     void OnTriggerEnter(Collider other)
     {
 
 
-        Debug.Log("Something collided in checkout zone Checkout listener"+other.gameObject.tag);
-
-        var productsMap = new Dictionary<string, long>();
-        if (other.gameObject.tag == "Player")
-        {
-            Debug.Log("Checkout Activated");
-            foreach(Product product in cart.productList){
-
-                productsMap[product.id] = product.qty;
-
-            }
-
-            string productsList = "[{";
-            foreach (KeyValuePair<string, long> entry in productsMap)
-            {
-                productsList += "\"id\":\"" + entry.Key + "\",";
-                productsList += "\"value\":\"" + entry.Value + "\"";
-                productsList += "},{";
-            }
-            productsList = productsList.Substring(0, productsList.Length - 2) + "]";
-
-            Debug.Log("products is: " + productsList);
-
-            WWWForm form = new WWWForm();
-            form.AddField("productQuantities", productsList);
-
-            Debug.Log("url:" + url);
-            UnityWebRequest www = UnityWebRequest.Post("https://api.eu.yaas.io/vdkom/vrservicetrial/vrservicetrial/order", form);
-            www.SetRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-
-            // make a POST request with a retry policy for a 404
-            StartCoroutine(F(www, form));
-
-            foreach (Product product in cart.productList)
-            {
-               // Destroy(product.gameObject);
-            }
-
-
-			//Debug.Log (productsList.Length);
-			//if (productsList.Length > 0) {
-            	ShowOrderText();
-			//}
-
-            Invoke("HideOrderText", 2);
-
-        }
+        
     }
 
-    IEnumerator F(UnityWebRequest www, WWWForm form)
+
+
+	IEnumerator F(UnityWebRequest www)
     {
         www.downloadHandler = new DownloadHandlerBuffer();
         www.Send();
@@ -104,17 +170,21 @@ public class checkoutListener : MonoBehaviour {
             }
             else { Debug.Log("Done"); }
 
-
+			/*
             if (www.downloadHandler.text.Contains("404"))
             {
 
+			
 
-                UnityWebRequest retryWww = UnityWebRequest.Post("https://api.eu.yaas.io/vdkom/vrservicetrial/vrservicetrial/order", form);
-                retryWww.SetRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+				UnityWebRequest retryWww = UnityWebRequest.Post("https://order-service-ngom-test.cfapps.us10.hana.ondemand.com/s2s/v1/v1/orders", form);
+				www.SetRequestHeader("Content-Type", "application/json");
+				www.SetRequestHeader("Authorization", "Basic TmpsVGsxSExoODFpTG5rNGJNZEo5Vmo1OjJrZG13cEZtNXhJRmVSMTNkb3NDOVo4cw==");
+				www.SetRequestHeader("hybris-tenant", "revcdevcfint");
+				www.SetRequestHeader("hybris-user", "revcdevcfint");
 
                 StartCoroutine(F(retryWww, form));
             }
-           
+           */
 
             // Or retrieve results as binary data
             byte[] results = www.downloadHandler.data;

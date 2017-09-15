@@ -7,7 +7,6 @@ public class OrderPage : MonoBehaviour {
 	public List<Transform> orderItems;
 	public CartListener cart;
 
-
 	// Use this for initialization
 	void Start () {
 		
