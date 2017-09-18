@@ -29,7 +29,7 @@ public class WandController : MonoBehaviour
 	public GameObject menuGO;
 	public TeleportVive teleportVive;
 
-
+	public ActionListener actionListener; 
 
 	groceryGame grocery;
 
@@ -49,6 +49,8 @@ public class WandController : MonoBehaviour
 		buttons = menuGO.GetComponentsInChildren<UnityEngine.UI.Button> ();
 
 		modelCollider = transform.Find ("Model").GetComponent<SphereCollider> ();
+
+		actionListener = GameObject.Find ("Menu").GetComponent<ActionListener> ();
 			
 	}
 
@@ -95,6 +97,8 @@ public class WandController : MonoBehaviour
 
 		if (controller.GetPressDown (gripButton) || controller.GetPressDown (triggerButton)) {
 			Debug.Log ("TriggerDown");
+
+			actionListener.triggerDown ();
 
 			modelCollider.enabled = false;
 
@@ -153,7 +157,7 @@ public class WandController : MonoBehaviour
 
 
 		if (controller.GetPressUp (triggerButton) ){
-
+			actionListener.triggerUp ();
 			if (modelCollider != null) {
 				modelCollider.enabled = true;
 			}

@@ -27,13 +27,17 @@ public class OrderPage : MonoBehaviour {
 
 		for (int i = 0; i < cart.productList.Count; i++) {
 			cart.productList [i].transform.position = orderItems [i].position;
+
+
+			orderItems [i].GetComponentInChildren<TextMesh> ().text = cart.productList [i].productName;
+
 			Debug.Log ("i: "+i);
 			Debug.Log ("item: "+cart.productList [i]);
 			Debug.Log (cart.productList [i].transform.position);
 
 
 			cart.productList [i].transform.localRotation = Quaternion.Euler (new Vector3(0, -90, 0)); //Quaternion.identity; // = Quaternion.AngleVector3.zero;
-			cart.productList [i].gameObject.AddComponent<BasketDetail>();
+			//cart.productList [i].gameObject.AddComponent<BasketDetail>();
 		}
 
 

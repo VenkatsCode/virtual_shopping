@@ -75,7 +75,7 @@ public class Product : MonoBehaviour {
     {
 
 
-        Debug.Log("Collision happened"+ col.gameObject.name);
+    
 
         //Product prodTest = new Product(1,1);
 
