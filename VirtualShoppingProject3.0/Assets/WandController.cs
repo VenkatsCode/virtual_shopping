@@ -26,6 +26,10 @@ public class WandController : MonoBehaviour
 	private InteractableBase interactingItem;
 
 
+
+
+
+
 	public GameObject menuGO;
 	public TeleportVive teleportVive;
 
@@ -200,11 +204,16 @@ public class WandController : MonoBehaviour
 
 
 		if (controller.GetPressUp (menuButton)) {
-			if (menuGO.activeSelf == true) {
-				toggleMenu (false);
+
+			actionListener.triggerMenu ();
+
+			/*if (menuGO.activeSelf == true) {
+				actionListener.menuClose ();
+				//toggleMenu (false);
 			} else {
-				toggleMenu (true);
-			}
+				actionListener.menuOpen ();
+				//toggleMenu (true);
+			}*/
 
 			Debug.Log ("menu" + menuGO.activeSelf + " " + menuGO.activeInHierarchy);
 
