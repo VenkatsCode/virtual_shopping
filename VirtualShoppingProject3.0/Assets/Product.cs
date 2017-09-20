@@ -1,5 +1,4 @@
-﻿using Leap.Unity.Interaction;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -19,6 +18,8 @@ public class Product : MonoBehaviour {
     public string id = "2";
 
     public string productName;
+
+	public string productDescription;
 
     public float price;
 
@@ -49,13 +50,7 @@ public class Product : MonoBehaviour {
 	}
 
 
-    void OnTriggerEnter(Collider col)
-    {
-      /*  Debug.Log("Trigger happened"+ col.gameObject.name);
-		productDetailText.GetComponent<TextMesh>().text = "Product " + this.productName + "\n Price:"+this.price+"$";
-		Invoke("hideProductDetailText", 6);*/
 
-    }
 
 
 	public void Highlight(){
@@ -75,10 +70,7 @@ public class Product : MonoBehaviour {
     {
 
 
-    
-
-        //Product prodTest = new Product(1,1);
-
+  
 
 
         if (col.gameObject.name == "inside_cart")
@@ -86,10 +78,6 @@ public class Product : MonoBehaviour {
 
 
             cart.addToCart(gameObject);
-
-
-            // product.gameObject.attachedRigidbody.useGravity = false;
-            //transform.gameObject.GetComponent<Product>();
 
 
 
@@ -101,16 +89,16 @@ public class Product : MonoBehaviour {
 
             transform.SetParent(GameObject.Find("CartListener").transform);
 
-            // GetComponent<InteractionBehaviour>().enabled = false;
+
 
             GetComponent<Rigidbody>().useGravity = false;
             GetComponent<Rigidbody>().isKinematic = true;
 
            
 
-            //transform.position = new Vector3(0, 2, 0);
+			transform.position = new Vector3(0, 2, 0);
 
-           // Destroy(GetComponent<Rigidbody>());
+      
 
            
 
@@ -137,23 +125,7 @@ public class Product : MonoBehaviour {
 		productDetailText.GetComponent<TextMesh>().text = "";
 	}
 
-    /*
-    void OnCollisionStay(Collision col)
-    {
-
-        Debug.Log("Something collided");
-
-
-        Destroy(transform.gameObject);
-
-        if (col.gameObject.layer == 10)
-        {
-
-            Debug.Log("Object Added to cart");
-
-          
-        }
-    }*/
+  
 
 
 }

@@ -68,7 +68,7 @@ public class ActionListener : MonoBehaviour {
 
 
 	public void triggerMenu(){
-	/*
+
 		if (isMenuActive) {
 			GameObject.FindGameObjectWithTag ("Player").transform.position = playerPositionInStore;
 			GameObject.FindGameObjectWithTag ("Player").transform.rotation  = Quaternion.Euler (playerRotationInStore);
@@ -80,9 +80,9 @@ public class ActionListener : MonoBehaviour {
 			GameObject.FindGameObjectWithTag ("Player").GetComponentInChildren<SteamVR_LaserPointer> ().thickness = 0.1f;
 			GameObject.FindGameObjectWithTag ("Player").transform.position = menuPlayerPosition.position;
 			//GameObject.FindGameObjectWithTag ("Player").transform.rotation = Quaternion.Euler (new Vector3(0,90,0));
-
+			orderPage.refreshList();
 			isMenuActive = true;
-		}*/
+		}
 	
 	}
 

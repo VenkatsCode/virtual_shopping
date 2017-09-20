@@ -30,7 +30,10 @@ public class WandController : MonoBehaviour
 
 
 
-	public GameObject menuGO;
+	//public GameObject menuGO;
+
+
+
 	public TeleportVive teleportVive;
 
 	public ActionListener actionListener; 
@@ -50,10 +53,10 @@ public class WandController : MonoBehaviour
 
 		grocery = GameObject.Find ("GroceryGame").GetComponent<groceryGame> ();
 
-		buttons = menuGO.GetComponentsInChildren<UnityEngine.UI.Button> ();
+	//	buttons = menuGO.GetComponentsInChildren<UnityEngine.UI.Button> ();
 
 
-		actionListener = GameObject.Find ("Menu").GetComponent<ActionListener> ();
+		//actionListener = GameObject.Find ("Menu").GetComponent<ActionListener> ();
 			
 	}
 
@@ -199,84 +202,14 @@ public class WandController : MonoBehaviour
 
 
 		if (controller.GetPressUp (menuButton)) {
-
 			actionListener.triggerMenu ();
-
-			/*if (menuGO.activeSelf == true) {
-				actionListener.menuClose ();
-				//toggleMenu (false);
-			} else {
-				actionListener.menuOpen ();
-				//toggleMenu (true);
-			}*/
-
-			Debug.Log ("menu" + menuGO.activeSelf + " " + menuGO.activeInHierarchy);
-
 		}
-
-		if (controller.GetPressUp (triggerButton) && (menuGO.activeSelf == true)) {
-
-			Debug.Log ("ACTION START" + activeMenuButton);
-
-
-			switch (activeMenuButton) {
-
-
-			case 0:
-				Debug.Log ("000000" + activeMenuButton);
-
-				SceneManager.LoadScene ("StoreViveSmaller");
-
-				break;
-			case 1:
-					
-
-				SceneManager.LoadScene ("StoreViveBig");
-
-				break;
-			case 2:
-					
-					//Supermarket Game
-
-				grocery.startGame ();
-				toggleMenu (false);
-					//SceneManager.LoadScene ("StoreGameThrow");
-
-				break;
-			case 3:
-					
-
-				Application.Quit ();
-
-				break;
-			
-			}
-
-
-		}
-
-
-
-
-
-
 
 
 	}
 
 
-	private void toggleMenu (bool show)
-	{
-		
-		if (show == true) {
 
-			menuGO.SetActive (true);
-			teleportVive.enabled = false;
-		} else {
-			menuGO.SetActive (false);
-			teleportVive.enabled = true;
-		}
-	}
 
 
 	private void changeMenuSelection (int activeMenuButton)

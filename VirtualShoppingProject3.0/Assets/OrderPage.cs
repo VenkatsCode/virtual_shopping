@@ -9,7 +9,7 @@ public class OrderPage : MonoBehaviour {
 
 	int pageCount = 0;
 
-	int productIndex = 0;
+	public int productIndex = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -38,6 +38,18 @@ public class OrderPage : MonoBehaviour {
 
 	}
 
+
+
+	public Product getProductAtPos(int pos){
+
+
+		if (productIndex + pos < cart.productList.Count) {
+			return cart.productList [productIndex+pos];
+		} else {
+			return null;
+		}
+
+	}
 
 	public void clearCart(){
 		pageCount = 0;

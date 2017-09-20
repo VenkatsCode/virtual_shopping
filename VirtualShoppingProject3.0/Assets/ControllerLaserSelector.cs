@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Text;
+using System;
 
 public class ControllerLaserSelector : MonoBehaviour {
 
@@ -63,6 +65,24 @@ public class ControllerLaserSelector : MonoBehaviour {
 		mats = target.GetComponent<Renderer>().materials;
 		mats[0] = selected;
 		item.GetComponent<Renderer>().materials = mats;
+
+
+
+		if (item.name.StartsWith("cartItem")) {
+
+		
+
+			Product prod = GameObject.Find ("Items").GetComponent<OrderPage> ().getProductAtPos (int.Parse(item.name.Substring(item.name.Length - 1,1)));
+
+			if (prod != null) {
+				GameObject.Find ("ItemDescription").GetComponent<TextMesh> ().text = ResolveTextSize(prod.productName + ": " + prod.productDescription.ToString(),30);
+			}
+
+		}
+
+
+
+
 	}
 
 	void unselectItem(GameObject item){
@@ -79,4 +99,27 @@ public class ControllerLaserSelector : MonoBehaviour {
 			target = value;
 		}
 	}
+
+
+
+	private string ResolveTextSize(string inputt, int lineLength){
+		int currentCharLine = 0;
+		StringBuilder input = new StringBuilder(inputt);
+		for( int i = 0; i < input.Length; i++){
+			currentCharLine++;
+			if(currentCharLine>=lineLength){
+				if(input[i]==' '){
+					input[i]= Convert.ToChar("\n"); 
+					currentCharLine = 0;
+				}//end if
+			}//end if
+		}//end for 
+		return input.ToString();
+	}
+
+
+
+
+
+
 }
