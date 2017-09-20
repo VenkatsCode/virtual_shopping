@@ -40,9 +40,7 @@ public class ActionListener : MonoBehaviour {
 
 
 	public void triggerUp(){
-		/*if (menuMode == 1 && ) {
-			ControllerLaserSelector
-		}*/
+
 		if (isMenuActive && laserSelector.Target != null) {
 
 			if (laserSelector.Target.tag == "ConfirmOrderBtn") {
@@ -70,7 +68,7 @@ public class ActionListener : MonoBehaviour {
 
 
 	public void triggerMenu(){
-	
+	/*
 		if (isMenuActive) {
 			GameObject.FindGameObjectWithTag ("Player").transform.position = playerPositionInStore;
 			GameObject.FindGameObjectWithTag ("Player").transform.rotation  = Quaternion.Euler (playerRotationInStore);
@@ -81,10 +79,10 @@ public class ActionListener : MonoBehaviour {
 			playerRotationInStore = GameObject.FindGameObjectWithTag ("Player").transform.rotation.eulerAngles;
 			GameObject.FindGameObjectWithTag ("Player").GetComponentInChildren<SteamVR_LaserPointer> ().thickness = 0.1f;
 			GameObject.FindGameObjectWithTag ("Player").transform.position = menuPlayerPosition.position;
-			GameObject.FindGameObjectWithTag ("Player").transform.rotation = Quaternion.Euler (new Vector3(0,90,0));
+			//GameObject.FindGameObjectWithTag ("Player").transform.rotation = Quaternion.Euler (new Vector3(0,90,0));
 
 			isMenuActive = true;
-		}
+		}*/
 	
 	}
 

@@ -50,6 +50,8 @@ public class OrderPage : MonoBehaviour {
 
 	public void confirmOrder(){
 		GameObject.Find("CheckoutListener").GetComponent<checkoutListener> ().confirmOrder ();
+		resetProductPosition ();
+		cart.clearCart ();
 	}
 
 	void resetProductPosition(){

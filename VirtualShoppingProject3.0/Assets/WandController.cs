@@ -37,7 +37,7 @@ public class WandController : MonoBehaviour
 
 	groceryGame grocery;
 
-	SphereCollider modelCollider;
+
 	public UnityEngine.UI.Button[] buttons;
 
 
@@ -52,7 +52,6 @@ public class WandController : MonoBehaviour
 
 		buttons = menuGO.GetComponentsInChildren<UnityEngine.UI.Button> ();
 
-		modelCollider = transform.Find ("Model").GetComponent<SphereCollider> ();
 
 		actionListener = GameObject.Find ("Menu").GetComponent<ActionListener> ();
 			
@@ -104,7 +103,6 @@ public class WandController : MonoBehaviour
 
 			actionListener.triggerDown ();
 
-			modelCollider.enabled = false;
 
 			// Find the closest item to the hand in case there are multiple and interact with it
 			float minDistance = float.MaxValue;
@@ -162,9 +160,6 @@ public class WandController : MonoBehaviour
 
 		if (controller.GetPressUp (triggerButton) ){
 			actionListener.triggerUp ();
-			if (modelCollider != null) {
-				modelCollider.enabled = true;
-			}
 		}
 
 		if (controller.GetPressUp (triggerButton) && interactingItem != null) {

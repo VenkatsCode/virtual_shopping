@@ -13,13 +13,13 @@ public class checkoutListener : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        cart = GameObject.Find("CartListener").GetComponent<CartListener>();
+      /*  cart = GameObject.Find("CartListener").GetComponent<CartListener>();
         orderText = GameObject.FindGameObjectWithTag("OrderText");
 
         productText = GameObject.FindGameObjectWithTag("ProductText");
 
 
-
+*/
 
         HideOrderText();
     }
@@ -107,17 +107,11 @@ public class checkoutListener : MonoBehaviour {
 		Debug.Log (productsList);
 
 
-		foreach (Product product in cart.productList)
-		{
-			// Destroy(product.gameObject);
-		}
-		cart.clearCart ();
 
 
-		//Debug.Log (productsList.Length);
-		//if (productsList.Length > 0) {
+	
 		ShowOrderText();
-		//}
+
 
 		Invoke("HideOrderText", 2);
 
