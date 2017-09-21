@@ -88,13 +88,7 @@ public class checkoutListener : MonoBehaviour
 
 		Debug.Log ("url:" + url);
 
-		/*UnityWebRequest www = UnityWebRequest.Post("https://order-service-ngom-test.cfapps.us10.hana.ondemand.com/s2s/v1/v1/orders", JsonUtility.ToJson (productsList));
-		www.SetRequestHeader("Content-Type", "application/json");
-		www.SetRequestHeader("Authorization", "Basic TmpsVGsxSExoODFpTG5rNGJNZEo5Vmo1OjJrZG13cEZtNXhJRmVSMTNkb3NDOVo4cw==");
-		www.SetRequestHeader("hybris-tenant", "revcdevcfint");
-		www.SetRequestHeader("hybris-user", "revcdevcfint");*/
-		// make a POST request with a retry policy for a 404
-//		StartCoroutine(F(www));
+
 
 		Dictionary<string, string> headers = new Dictionary<string, string> ();
 
@@ -117,7 +111,7 @@ public class checkoutListener : MonoBehaviour
 		ShowOrderText ();
 
 
-		Invoke ("HideOrderText", 2);
+		Invoke ("HideOrderText", 4);
 
 
 	}
@@ -183,13 +177,15 @@ public class checkoutListener : MonoBehaviour
 
 	void ShowOrderText ()
 	{
-		productText.GetComponent<TextMesh> ().text = "Congratulation, the order has been placed successfully !";
+		productText.GetComponent<TextMesh> ().text = "Congratulation, the order \nhas been placed successfully !";
+		cart.productDetailPanel.SetActive (true);
 	}
 
 
 	void HideOrderText ()
 	{
 		productText.GetComponent<TextMesh> ().text = "";
+		cart.productDetailPanel.SetActive (false);
 	}
 
 

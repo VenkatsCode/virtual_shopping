@@ -26,7 +26,7 @@ public class WandController : MonoBehaviour
 	private InteractableBase interactingItem;
 
 
-
+	public Material highlightMat;
 
 
 
@@ -123,11 +123,17 @@ public class WandController : MonoBehaviour
 			interactingItem = closestItem;
 			closestItem = null;
 
-
+			if (closestItem != null) {
+				
+			
+			
+			} else {
+			
+			}
 
 			if (interactingItem) {
-
-	               
+				RumbleController (0.05f, 10);
+				//controller.TriggerHapticPulse highlightMat
 
 				// Begin Interaction should already end interaction from previous
 				if (controller.GetPressDown (gripButton)) {
@@ -137,7 +143,7 @@ public class WandController : MonoBehaviour
 					interactingItem.OnGripPressDown (this);
 				}
 				if (controller.GetPressDown (triggerButton)) {
-	                   
+					
 
 					if (interactingItem.GetComponent<Product> () != null) {
 						interactingItem.GetComponent<Product> ().Highlight ();
@@ -166,7 +172,7 @@ public class WandController : MonoBehaviour
 		}
 
 		if (controller.GetPressUp (triggerButton) && interactingItem != null) {
-
+			RumbleController (0.05f, 10);
 			Debug.Log ("TRIGGER INTERACTION");
 			if (interactingItem.GetComponent<Product> () != null) {
 				interactingItem.GetComponent<Product> ().removeHighlight ();
@@ -209,7 +215,33 @@ public class WandController : MonoBehaviour
 	}
 
 
+	void highlightController(){
+		GetComponentInChildren
+		Material[] mats = GetComponent<Renderer> ().materials;
+		mats [0] = highlightMat;
+		GetComponent<Renderer> ().materials = mats;
+	
+	}
 
+	void RumbleController( float duration, float strength )
+	{
+		StartCoroutine( RumbleControllerRoutine( duration, strength ) );
+	}
+
+	IEnumerator RumbleControllerRoutine( float duration, float strength )
+	{
+		strength = Mathf.Clamp01( strength );
+		float startTime = Time.realtimeSinceStartup;
+
+		while( Time.realtimeSinceStartup - startTime <= duration )
+		{
+			int valveStrength = Mathf.RoundToInt( Mathf.Lerp( 0, 3999, strength ) );
+
+			controller.TriggerHapticPulse( (ushort)valveStrength );
+
+			yield return null;
+		}
+	}
 
 
 	private void changeMenuSelection (int activeMenuButton)

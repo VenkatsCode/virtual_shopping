@@ -11,6 +11,9 @@ public class CartListener : MonoBehaviour {
 
 	public OrderPage orderPage;
 
+
+	public GameObject productDetailPanel;
+
     public List<Product> productList;
 
     // Use this for initialization
@@ -52,7 +55,7 @@ public class CartListener : MonoBehaviour {
 
         }
 
-		Debug.Log("ProductCount"+productList.Count);
+
 		orderPage.refreshList ();
 
 

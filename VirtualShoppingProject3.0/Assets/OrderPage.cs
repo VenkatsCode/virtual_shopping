@@ -58,12 +58,12 @@ public class OrderPage : MonoBehaviour {
 
 		GameObject.Find ("ItemsInCart").GetComponent<TextMesh> ().text = "Items in Cart: " + cart.productList.Count;
 		GameObject.Find("OrderTotal").GetComponent<TextMesh>().text = "Order Total: 0 $";
+		GameObject.Find("OrderText").GetComponent<TextMesh>().text = "Items in Cart: 0 \n"+"Order Total: 0 $";
 	}
 
 	public void confirmOrder(){
 		GameObject.Find("CheckoutListener").GetComponent<checkoutListener> ().confirmOrder ();
-		resetProductPosition ();
-		cart.clearCart ();
+		clearCart ();
 	}
 
 	void resetProductPosition(){
@@ -95,6 +95,7 @@ public class OrderPage : MonoBehaviour {
 
 		GameObject.Find ("ItemsInCart").GetComponent<TextMesh> ().text = "Items in Cart: " + cart.productList.Count;
 		GameObject.Find("OrderTotal").GetComponent<TextMesh>().text = "Order Total: "+price+" $";
+		GameObject.Find("OrderText").GetComponent<TextMesh>().text = "Items in Cart: " + cart.productList.Count+"\n"+"Order Total: "+price+" $";
 
 		Debug.Log ("RefreshList");
 		productIndex = pageCount * 6;

@@ -13,6 +13,8 @@ public class Product : MonoBehaviour {
 	GameObject productDetailText;
 
 
+
+
 	Material highlightMat;
 
     public string id = "2";
@@ -42,6 +44,10 @@ public class Product : MonoBehaviour {
 
         productText = GameObject.FindGameObjectWithTag("ProductText");
 		productDetailText = GameObject.FindGameObjectWithTag("ProductDetailText");
+
+
+	
+
     }
 	
 	// Update is called once per frame
@@ -82,8 +88,10 @@ public class Product : MonoBehaviour {
 
 
 			productText.GetComponent<TextMesh>().text = "Product " + this.productName + "\n was added to the cart !";
+			cart.productDetailPanel.SetActive (true);
 
-            Invoke("hideProductText", 6);
+
+            Invoke("hideProductText", 1);
 
             transform.SetParent(GameObject.FindGameObjectWithTag("Cart").transform);
 
@@ -118,6 +126,7 @@ public class Product : MonoBehaviour {
     void hideProductText() {
 
         productText.GetComponent<TextMesh>().text = "";
+		cart.productDetailPanel.SetActive (false);
     }
 
 	void hideProductDetailText() {
